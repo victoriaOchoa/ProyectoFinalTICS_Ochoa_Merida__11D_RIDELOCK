@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RideLock — Sistema inteligente de verificación y asistencia para atracciones</title>
+<meta name="description" content="RideLock: sistema de verificación automática y asistencia de emergencia para atracciones, desarrollado para IRTRA Petapa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="#inicio" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      RideLock
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#reto">El reto</a>
+      <a href="#solucion">La solución</a>
+      <a href="#funcionamiento">Funcionamiento</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#evidencia">Evidencia</a>
+      <a href="#ods">ODS</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#solucion" class="btn btn-small btn-primary nav-cta">Ver proyecto</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Proyecto de Automatización y Control · IRTRA Petapa</p>
+      <h1>RideLock</h1>
+      <p class="hero-subtitle">Sistema inteligente de verificación y asistencia para atracciones</p>
+      <p class="hero-text">Una solución automatizada diseñada para verificar las condiciones del vagón antes de iniciar una nueva experiencia y proporcionar una alerta inmediata ante una emergencia.</p>
+      <p class="hero-tagline">Verificar. Autorizar. Proteger.</p>
+      <div class="hero-actions">
+        <a href="#solucion" class="btn btn-primary">Conocer la solución</a>
+        <a href="#evidencia" class="btn btn-outline">Ver evidencia</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 460 420" class="hero-svg" xmlns="http://www.w3.org/2000/svg">
+        <!-- riel -->
+        <line x1="20" y1="330" x2="440" y2="330" stroke="var(--gray-600)" stroke-width="2" stroke-dasharray="6 8"/>
+
+        <!-- vagón -->
+        <g class="hero-cart">
+          <rect x="70" y="220" width="200" height="90" rx="14" fill="none" stroke="var(--blue)" stroke-width="3"/>
+          <rect x="95" y="240" width="45" height="35" rx="4" fill="none" stroke="var(--blue)" stroke-width="2"/>
+          <rect x="155" y="240" width="45" height="35" rx="4" fill="none" stroke="var(--blue)" stroke-width="2"/>
+          <circle cx="105" cy="315" r="14" fill="var(--bg)" stroke="var(--purple)" stroke-width="3"/>
+          <circle cx="235" cy="315" r="14" fill="var(--bg)" stroke="var(--purple)" stroke-width="3"/>
+        </g>
+
+        <!-- sensor PIR -->
+        <g class="hero-sensor">
+          <circle cx="330" cy="150" r="34" fill="none" stroke="var(--purple)" stroke-width="3"/>
+          <path d="M330 150 L330 122 M330 150 L353 137 M330 150 L353 163" stroke="var(--purple)" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M300 108 Q330 88 360 108" fill="none" stroke="var(--purple)" stroke-width="2" stroke-dasharray="4 5"/>
+          <line x1="330" y1="184" x2="330" y2="222" stroke="var(--gray-600)" stroke-width="2"/>
+        </g>
+
+        <!-- panel de estado -->
+        <g class="hero-panel">
+          <rect x="30" y="40" width="150" height="90" rx="12" fill="var(--surface)" stroke="var(--gray-700)" stroke-width="1.5"/>
+          <text x="48" y="64" class="hero-panel-label">ESTADO</text>
+          <circle class="led led-green" cx="55" cy="88" r="9"/>
+          <circle class="led led-idle" cx="90" cy="88" r="9"/>
+          <circle class="led led-idle" cx="125" cy="88" r="9"/>
+          <text x="48" y="112" class="hero-panel-sub">Vagón libre</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EQUIPO ===================== -->
+<section class="section section-tight" id="equipo">
+  <div class="container reveal">
+    <h2 class="section-title-small">Nuestro equipo</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <span class="team-mark" aria-hidden="true"></span>
+        <p class="team-name">Victoria Isabel Ochoa Madrid</p>
+      </div>
+      <div class="team-card">
+        <span class="team-mark" aria-hidden="true"></span>
+        <p class="team-name">Maria Gabriela Merida Lopez</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EL RETO ===================== -->
+<section class="section" id="reto">
+  <div class="container">
+    <div class="section-grid reveal">
+      <div class="section-head">
+        <p class="eyebrow">El problema a resolver</p>
+        <h2>El reto</h2>
+        <p>Después de finalizar una atracción, es necesario verificar que el vagón se encuentre libre de movimiento antes de permitir un nuevo inicio. Además, el pasajero debe contar con un mecanismo sencillo para generar una alerta de emergencia durante el funcionamiento.</p>
+        <p>El proyecto busca automatizar esta verificación y establecer una condición de bloqueo cuando se detecta movimiento.</p>
+      </div>
+
+      <div class="flow-diagram">
+        <div class="flow-step">Atracción finaliza</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">Verificación del vagón</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step flow-question">¿Se detecta movimiento?</div>
+        <div class="flow-branch">
+          <div class="flow-branch-item flow-ok">
+            <span class="flow-branch-label">NO</span>
+            <span>Continuar</span>
+          </div>
+          <div class="flow-branch-item flow-danger">
+            <span class="flow-branch-label">SÍ</span>
+            <span>Bloquear</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LA SOLUCIÓN ===================== -->
+<section class="section section-alt" id="solucion">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Nuestra propuesta</p>
+      <h2>Nuestra solución</h2>
+    </div>
+
+    <div class="solution-text reveal">
+      <p>RideLock utiliza un sensor PIR para verificar el movimiento dentro del vagón antes de autorizar un nuevo ciclo. Si se detecta movimiento, el sistema mantiene bloqueado el inicio. Cuando el vagón permanece libre durante el periodo de verificación, el sistema habilita el inicio de la atracción.</p>
+      <p>Durante el funcionamiento, un botón de emergencia permite al pasajero activar inmediatamente una alerta visual y sonora, bloqueando el sistema hasta que se realice el reinicio correspondiente.</p>
+    </div>
+
+    <div class="highlight-card reveal">
+      <h3>¿Qué aporta RideLock?</h3>
+      <ul class="check-list">
+        <li>Verificación automática</li>
+        <li>Bloqueo ante movimiento detectado</li>
+        <li>Indicadores visuales de estado</li>
+        <li>Alerta de emergencia para pasajeros</li>
+        <li>Reinicio controlado</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FUNCIONAMIENTO ===================== -->
+<section class="section" id="funcionamiento">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Proceso</p>
+      <h2>¿Cómo funciona?</h2>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-step">
+        <span class="timeline-index">01</span>
+        <h3>Detección</h3>
+        <p>El sensor PIR verifica si existe movimiento en el vagón.</p>
+        <span class="status-dot dot-red"></span>
+      </div>
+      <div class="timeline-step">
+        <span class="timeline-index">02</span>
+        <h3>Verificación</h3>
+        <p>Si no se detecta movimiento, comienza una comprobación de 5 segundos.</p>
+        <span class="status-dot dot-yellow"></span>
+      </div>
+      <div class="timeline-step">
+        <span class="timeline-index">03</span>
+        <h3>Autorización</h3>
+        <p>Si el vagón permanece libre, el sistema indica que está listo y comienza la cuenta regresiva de inicio.</p>
+        <span class="status-dot dot-green"></span>
+      </div>
+      <div class="timeline-step">
+        <span class="timeline-index">04</span>
+        <h3>Emergencia</h3>
+        <p>Durante el funcionamiento, el pasajero puede presionar el botón de emergencia para activar una alerta visual y sonora y bloquear el sistema.</p>
+        <span class="status-dot dot-red"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ESTADOS DEL SISTEMA ===================== -->
+<section class="section section-alt" id="estados">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Panel de control</p>
+      <h2>Inteligencia del sistema</h2>
+    </div>
+
+    <div class="states-panel reveal">
+      <div class="state-card">
+        <span class="led-lg led-red"></span>
+        <h3>Vagón ocupado</h3>
+        <p class="state-label state-blocked">Bloqueado</p>
+      </div>
+      <div class="state-card">
+        <span class="led-lg led-red led-pulse"></span>
+        <h3>Verificando</h3>
+        <p class="state-label state-blocked">Comprobando</p>
+      </div>
+      <div class="state-card">
+        <span class="led-lg led-green-lg"></span>
+        <h3>Vagón libre</h3>
+        <p class="state-label state-ready">Listo</p>
+      </div>
+      <div class="state-card">
+        <span class="led-lg led-red led-pulse"></span>
+        <h3>Emergencia</h3>
+        <p class="state-label state-blocked">Bloqueado · Alerta sonora</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECNOLOGÍA ===================== -->
+<section class="section" id="tecnologia">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Componentes</p>
+      <h2>Tecnología utilizada</h2>
+    </div>
+
+    <div class="tech-grid reveal">
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="chip"></span>
+        <h3>Arduino Uno R3</h3>
+        <p>Controlador principal del sistema.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="motion"></span>
+        <h3>Sensor PIR</h3>
+        <p>Detecta movimiento dentro del vagón.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="display"></span>
+        <h3>Pantalla LCD I2C 16x2</h3>
+        <p>Muestra el estado del sistema.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="led-red"></span>
+        <h3>LED rojo</h3>
+        <p>Indica bloqueo o emergencia.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="led-green"></span>
+        <h3>LED verde</h3>
+        <p>Indica sistema listo.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="button-red"></span>
+        <h3>Botón de emergencia</h3>
+        <p>Activa la alerta del pasajero.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="button"></span>
+        <h3>Botón de reinicio</h3>
+        <p>Restablece el sistema tras una alerta.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="buzzer"></span>
+        <h3>Buzzer</h3>
+        <p>Emite la alerta sonora de emergencia.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="board"></span>
+        <h3>Protoboard</h3>
+        <p>Base de montaje del circuito.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="resistor"></span>
+        <h3>Resistencias</h3>
+        <p>Protegen los componentes del circuito.</p>
+      </div>
+      <div class="tech-card">
+        <span class="tech-icon" data-icon="cable"></span>
+        <h3>Cables de conexión</h3>
+        <p>Conectan los componentes entre sí.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EVIDENCIA ===================== -->
+<section class="section section-alt" id="evidencia">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Prototipo</p>
+      <h2>Evidencia del prototipo</h2>
+      <p>Video de la simulación del circuito desarrollada en Tinkercad.</p>
+    </div>
+
+    <div class="evidence-box reveal">
+      <div class="evidence-frame" id="evidenceFrame">
+        <video id="circuitVideo" controls playsinline>
+          <source src="recursos/circuito/videoc.mp4" type="video/mp4">
+        </video>
+        <div class="evidence-placeholder" id="evidencePlaceholder">
+          <span class="placeholder-icon" aria-hidden="true">◇</span>
+          <p class="placeholder-title">Video del circuito</p>
+          <p class="placeholder-tag">Recurso pendiente</p>
+        </div>
+      </div>
+
+      <div class="evidence-footer">
+        <button class="btn btn-outline" id="openCircuitBtn">Pantalla completa</button>
+        <div class="system-status">
+          <span class="status-dot dot-green"></span>
+          Estado del sistema: <strong>Funciona</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DOCUMENTACIÓN ===================== -->
+<section class="section" id="documentacion">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Archivos del proyecto</p>
+      <h2>Centro de documentación</h2>
+    </div>
+
+    <div class="docs-grid docs-grid-2 reveal">
+      <div class="doc-card" data-resource="recursos/infografia/RIDELOCK.pdf">
+        <h3>Infografía</h3>
+        <p>Resumen visual del proyecto RideLock.</p>
+        <a href="recursos/infografia/RIDELOCK.pdf" class="btn btn-small btn-outline doc-link" target="_blank" rel="noopener">Abrir recurso</a>
+      </div>
+      <div class="doc-card" data-resource="recursos/documentos/docfinalridelock.pdf">
+        <h3>Documento Formal de Investigación</h3>
+        <p>Informe completo del proyecto RideLock.</p>
+        <a href="recursos/documentos/docfinalridelock.pdf" class="btn btn-small btn-outline doc-link" target="_blank" rel="noopener">Abrir recurso</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ODS ===================== -->
+<section class="section section-alt" id="ods">
+  <div class="container">
+    <div class="section-grid reverse reveal">
+      <div class="section-head">
+        <p class="eyebrow">Impacto</p>
+        <h2>ODS 9 — Industria, Innovación e Infraestructura</h2>
+        <p>RideLock aplica automatización y electrónica para desarrollar una solución tecnológica orientada a mejorar los procesos de seguridad y control en sistemas de entretenimiento.</p>
+      </div>
+
+      <div class="ods-equation">
+        <div class="ods-term">Automatización</div>
+        <span class="ods-op">+</span>
+        <div class="ods-term">Electrónica</div>
+        <span class="ods-op">+</span>
+        <div class="ods-term">Control</div>
+        <span class="ods-op ods-eq">=</span>
+        <div class="ods-term ods-result">Innovación</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROPUESTA DE VALOR ===================== -->
+<section class="section" id="valor">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Ventajas</p>
+      <h2>¿Por qué RideLock?</h2>
+    </div>
+
+    <div class="value-grid reveal">
+      <div class="value-card">
+        <h3>Mayor control</h3>
+        <p>El sistema verifica automáticamente las condiciones antes de permitir un nuevo ciclo.</p>
+      </div>
+      <div class="value-card">
+        <h3>Respuesta inmediata</h3>
+        <p>El botón de emergencia activa una alerta visual y sonora.</p>
+      </div>
+      <div class="value-card">
+        <h3>Fácil implementación</h3>
+        <p>La solución utiliza componentes electrónicos accesibles y una arquitectura sencilla.</p>
+      </div>
+      <div class="value-card">
+        <h3>Escalable</h3>
+        <p>El concepto puede servir como base para futuras mejoras y sistemas más completos de seguridad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RECURSOS DEL PROYECTO ===================== -->
+<section class="section section-alt" id="recursos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Centro de mando</p>
+      <h2>Centro de recursos</h2>
+    </div>
+
+    <div class="resource-grid reveal">
+      <div class="resource-card">
+        <h3>GitHub</h3>
+        <p>Repositorio: ProyectoFinalTICS_Ochoa_Merida__11D_RIDELOCK</p>
+        <!-- Coloca aquí la URL completa del repositorio en RECURSOS.github (script.js) -->
+        <a href="#" class="btn btn-outline resource-link" id="githubLink" data-pending="true">Enlace pendiente</a>
+      </div>
+      <div class="resource-card">
+        <h3>Podcast del proyecto</h3>
+        <p>Conoce el proyecto explicado por nuestro equipo (video en YouTube).</p>
+        <!-- Coloca aquí la URL del video de YouTube en RECURSOS.podcast (script.js) -->
+        <a href="#" class="btn btn-outline resource-link" id="podcastLink" data-pending="true">Enlace pendiente</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="cta-final reveal">
+  <div class="container">
+    <h2>Una atracción más controlada comienza con una mejor verificación.</h2>
+    <p>RideLock integra sensores, automatización y una interfaz de control para crear una propuesta enfocada en la seguridad y asistencia dentro de las atracciones.</p>
+    <a href="#solucion" class="btn btn-primary">Explorar el proyecto</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <p class="footer-title">RideLock</p>
+        <p class="footer-tag">Sistema inteligente de verificación y asistencia para atracciones.</p>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <p>Proyecto de Automatización y Control — IRTRA Petapa</p>
+      <p>Victoria Isabel Ochoa Madrid · Maria Gabriela Merida Lopez</p>
+      <p class="footer-year">2026</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
