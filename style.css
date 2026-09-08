@@ -622,6 +622,10 @@ img { max-width: 100%; display: block; }
   gap: 22px;
   margin-bottom: 64px;
 }
+.resource-grid-1 {
+  grid-template-columns: minmax(0, 420px);
+  justify-content: center;
+}
 .resource-card {
   background: var(--surface);
   border: 1px solid var(--gray-700);
