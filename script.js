@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* -----------------------------------------------------
-     4. RECURSOS PENDIENTES (GitHub / Podcast / Documentos)
+     4. RECURSOS PENDIENTES (Podcast)
      -------------------------------------------------------
      Para activar un enlace cuando el recurso ya exista,
      simplemente reemplaza el valor correspondiente aquí
@@ -94,9 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
      el botón se mostrará deshabilitado como "Enlace pendiente".
   ----------------------------------------------------- */
   var RECURSOS = {
-    // Repositorio: ProyectoFinalTICS_Ochoa_Merida__11D_RIDELOCK
-    // Ejemplo: "https://github.com/TU-USUARIO/ProyectoFinalTICS_Ochoa_Merida__11D_RIDELOCK"
-    github: null,
     // Enlace del video del podcast en YouTube.
     // Ejemplo: "https://www.youtube.com/watch?v=xxxxxxxxxxx"
     podcast: null
@@ -124,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  configurarEnlacePendiente('githubLink', RECURSOS.github);
   configurarEnlacePendiente('podcastLink', RECURSOS.podcast);
 
   /* -----------------------------------------------------
