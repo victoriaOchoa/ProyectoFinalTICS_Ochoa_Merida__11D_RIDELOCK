@@ -1,8 +1,7 @@
 /* =========================================================
    RIDELOCK — script.js
    Funcionalidades: menú móvil, scroll suave, animaciones al
-   aparecer, video del circuito en pantalla completa y manejo de
-   recursos pendientes.
+   aparecer y video del circuito en pantalla completa.
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -86,68 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* -----------------------------------------------------
-     4. RECURSOS PENDIENTES (Podcast)
-     -------------------------------------------------------
-     Para activar un enlace cuando el recurso ya exista,
-     simplemente reemplaza el valor correspondiente aquí
-     abajo por la URL real. Mientras el valor sea null,
-     el botón se mostrará deshabilitado como "Enlace pendiente".
-  ----------------------------------------------------- */
-  var RECURSOS = {
-    // Enlace del video del podcast en YouTube.
-    // Ejemplo: "https://www.youtube.com/watch?v=xxxxxxxxxxx"
-    podcast: null
-  };
-
-  function configurarEnlacePendiente(id, url) {
-    var link = document.getElementById(id);
-    if (!link) return;
-
-    if (url) {
-      link.href = url;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = link.dataset.readyLabel || 'Abrir enlace';
-      link.classList.remove('is-pending');
-      link.removeAttribute('data-pending');
-      link.removeAttribute('aria-disabled');
-    } else {
-      link.href = '#';
-      link.classList.add('is-pending');
-      link.setAttribute('aria-disabled', 'true');
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-      });
-    }
-  }
-
-  configurarEnlacePendiente('podcastLink', RECURSOS.podcast);
-
-  /* -----------------------------------------------------
-     5. DOCUMENTOS — deshabilitar botones si el archivo
-     todavía no existe (evita enlaces rotos a /recursos/...)
-  ----------------------------------------------------- */
-  document.querySelectorAll('.doc-link').forEach(function (link) {
-    fetch(link.getAttribute('href'), { method: 'HEAD' })
-      .then(function (res) {
-        if (!res.ok) marcarComoPendiente(link);
-      })
-      .catch(function () {
-        marcarComoPendiente(link);
-      });
-  });
-
-  function marcarComoPendiente(link) {
-    link.textContent = 'Disponible próximamente';
-    link.classList.add('is-pending');
-    link.setAttribute('aria-disabled', 'true');
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-    });
-  }
-
-  /* -----------------------------------------------------
-     6. NAVBAR — sombra ligera al hacer scroll (sutil)
+     4. NAVBAR — sombra ligera al hacer scroll (sutil)
   ----------------------------------------------------- */
   var navbar = document.getElementById('navbar');
   var lastScrollState = false;
