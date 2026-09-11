@@ -344,16 +344,30 @@
       <h2>Centro de documentación</h2>
     </div>
 
-    <div class="docs-grid docs-grid-2 reveal">
-      <div class="doc-card" data-resource="recursos/RIDELOCK.pdf">
+    <div class="docs-stack reveal">
+      <div class="doc-card">
         <h3>Infografía</h3>
         <p>Resumen visual del proyecto RideLock.</p>
-        <a href="recursos/RIDELOCK.pdf" class="btn btn-small btn-outline doc-link" target="_blank" rel="noopener">Abrir recurso</a>
+        <div class="pdf-frame">
+          <iframe src="recursos/ridelockinfo.pdf" title="Infografía RideLock" loading="lazy"></iframe>
+        </div>
+        <div class="doc-actions">
+          <a href="recursos/ridelockinfo.pdf" class="doc-action-link" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+          <a href="recursos/ridelockinfo.pdf" class="doc-action-link" download>Descargar PDF</a>
+        </div>
       </div>
-      <div class="doc-card" data-resource="recursos/docfinalridelock.pdf">
+
+      <div class="doc-card">
         <h3>Documento Formal de Investigación</h3>
         <p>Informe completo del proyecto RideLock.</p>
-        <a href="recursos/docfinalridelock.pdf" class="btn btn-small btn-outline doc-link" target="_blank" rel="noopener">Abrir recurso</a>
+        <div class="pdf-frame">
+          <iframe src="recursos/docfinalridelock.pdf" title="Documento Formal de Investigación RideLock" loading="lazy"></iframe>
+        </div>
+        <div class="doc-actions">
+          <a href="recursos/docfinalridelock.pdf" class="doc-action-link" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+          <a href="recursos/docfinalridelock.pdf" class="doc-action-link" download>Descargar PDF</a>
+          <a href="recursos/docfinalridelock.docx" class="doc-action-link doc-action-word" download>Descargar Word</a>
+        </div>
       </div>
     </div>
   </div>
@@ -420,11 +434,14 @@
     </div>
 
     <div class="resource-grid resource-grid-1 reveal">
-      <div class="resource-card">
+      <div class="resource-card resource-card-video">
         <h3>Podcast del proyecto</h3>
         <p>Conoce el proyecto explicado por nuestro equipo (video en YouTube).</p>
-        <!-- Coloca aquí la URL del video de YouTube en RECURSOS.podcast (script.js) -->
-        <a href="#" class="btn btn-outline resource-link" id="podcastLink" data-pending="true">Enlace pendiente</a>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/X2oyMi2zF4A" title="Podcast del proyecto RideLock"
+                  loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </div>
